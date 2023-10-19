@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+-->
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script>
+        function onCopy(elem) {
+            val = elem.parentNode.parentNode.previousElementSibling.firstChild
+            window.getSelection().selectAllChildren(val);
+            document.execCommand("Copy");
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>

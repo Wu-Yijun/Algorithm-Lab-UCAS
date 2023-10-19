@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+-->
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script>
+        function onCopy(elem) {
+            val = elem.parentNode.parentNode.previousElementSibling.firstChild
+            window.getSelection().selectAllChildren(val);
+            document.execCommand("Copy");
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #B. Prime
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./2A.html" class="pass ">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./2B.html" class="pass active">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">250ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">Prime</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <blockquote class="note">
+                            <p>该比赛已结束，您无法在比赛模式下递交该题目。您可以点击“在题库中打开”以普通模式查看和递交本题。</p>
+                        </blockquote>
+                        <h1 id="prime" tabindex="-1">Prime</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>素数判定的 Miller-Rabin 算法可以判定任意奇数 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span>
+                            是否为素数，算法的设计思想如下：</p>
+                        <ul>
+                            <li>首先把 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                    <mo>−</mo>
+                                                    <mn>1</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n-1</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.6667em;vertical-align:-0.0833em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2222em;"></span><span class="mbin">−</span><span
+                                                class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1</span></span></span></span> 分解成为 <span
+                                    class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                    <mo>−</mo>
+                                                    <mn>1</mn>
+                                                    <mo>=</mo>
+                                                    <msup>
+                                                        <mn>2</mn>
+                                                        <mi>r</mi>
+                                                    </msup>
+                                                    <mi>m</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n-1=2^r m</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.6667em;vertical-align:-0.0833em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2222em;"></span><span class="mbin">−</span><span
+                                                class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">=</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6644em;"></span><span
+                                                class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                                        class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                style="height:0.6644em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mathnormal mtight"
+                                                                            style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span><span
+                                                class="mord mathnormal">m</span></span></span></span>，其中 <span
+                                    class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>m</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">m</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.4306em;"></span><span
+                                                class="mord mathnormal">m</span></span></span></span> 为奇数。
+                            </li>
+                            <li>随机底数 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>a</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">a</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.4306em;"></span><span
+                                                class="mord mathnormal">a</span></span></span></span>，若
+                                <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <msup>
+                                                        <mi>a</mi>
+                                                        <mrow>
+                                                            <msup>
+                                                                <mn>2</mn>
+                                                                <mi>r</mi>
+                                                            </msup>
+                                                            <mi>m</mi>
+                                                        </mrow>
+                                                    </msup>
+                                                    <mo>≢</mo>
+                                                    <mn>1</mn>
+                                                    <mspace></mspace>
+                                                    <mspace width="0.4444em"></mspace>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mrow>
+                                                        <mi mathvariant="normal">m</mi>
+                                                        <mi mathvariant="normal">o</mi>
+                                                        <mi mathvariant="normal">d</mi>
+                                                    </mrow>
+                                                    <mspace width="0.3333em"></mspace>
+                                                    <mi>n</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">a^{2^r m}\not\equiv1\pmod{n}
+                                                </annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:1.0744em;vertical-align:-0.1944em;"></span><span
+                                                class="mord"><span class="mord mathnormal">a</span><span
+                                                    class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.88em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight"><span
+                                                                                class="mord mtight"><span
+                                                                                    class="mord mtight">2</span><span
+                                                                                    class="msupsub"><span
+                                                                                        class="vlist-t"><span
+                                                                                            class="vlist-r"><span
+                                                                                                class="vlist"
+                                                                                                style="height:0.7385em;"><span
+                                                                                                    style="top:-2.931em;margin-right:0.0714em;"><span
+                                                                                                        class="pstrut"
+                                                                                                        style="height:2.5em;"></span><span
+                                                                                                        class="sizing reset-size3 size1 mtight"><span
+                                                                                                            class="mord mathnormal mtight"
+                                                                                                            style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span><span
+                                                                                class="mord mathnormal mtight">m</span></span></span></span></span></span></span></span></span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span><span
+                                                class="mrel"><span class="mord vbox"><span class="thinbox"><span
+                                                            class="rlap"><span class="strut"
+                                                                style="height:0.8889em;vertical-align:-0.1944em;"></span><span
+                                                                class="inner"><span class="mord"><span
+                                                                        class="mrel"></span></span></span><span
+                                                                class="fix"></span></span></span></span></span></span><span
+                                            class="base"><span class="strut" style="height:0.4637em;"></span><span
+                                                class="mrel">≡</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1</span><span class="mspace allowbreak"></span><span
+                                                class="mspace" style="margin-right:0.4444em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                style="height:1em;vertical-align:-0.25em;"></span><span
+                                                class="mopen">(</span><span class="mord"><span class="mord"><span
+                                                        class="mord mathrm">mod</span></span></span><span class="mspace"
+                                                style="margin-right:0.3333em;"></span><span
+                                                class="mord mathnormal">n</span><span
+                                                class="mclose">)</span></span></span></span>，则 <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.4306em;"></span><span
+                                                class="mord mathnormal">n</span></span></span></span>
+                                为合数，否则进行下一步。（费马测试）
+                            </li>
+                            <li>考察序列 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <msup>
+                                                        <mi>a</mi>
+                                                        <mrow>
+                                                            <msup>
+                                                                <mn>2</mn>
+                                                                <mi>r</mi>
+                                                            </msup>
+                                                            <mi>m</mi>
+                                                        </mrow>
+                                                    </msup>
+                                                    <mo separator="true">,</mo>
+                                                    <msup>
+                                                        <mi>a</mi>
+                                                        <mrow>
+                                                            <msup>
+                                                                <mn>2</mn>
+                                                                <mrow>
+                                                                    <mi>r</mi>
+                                                                    <mo>−</mo>
+                                                                    <mn>1</mn>
+                                                                </mrow>
+                                                            </msup>
+                                                            <mi>m</mi>
+                                                        </mrow>
+                                                    </msup>
+                                                    <mo separator="true">,</mo>
+                                                    <mo>⋯</mo>
+                                                    <mtext> </mtext>
+                                                    <mo separator="true">,</mo>
+                                                    <msup>
+                                                        <mi>a</mi>
+                                                        <mrow>
+                                                            <msup>
+                                                                <mn>2</mn>
+                                                                <mn>0</mn>
+                                                            </msup>
+                                                            <mi>m</mi>
+                                                        </mrow>
+                                                    </msup>
+                                                    <mspace></mspace>
+                                                    <mspace width="0.4444em"></mspace>
+                                                    <mo stretchy="false">(</mo>
+                                                    <mrow>
+                                                        <mi mathvariant="normal">m</mi>
+                                                        <mi mathvariant="normal">o</mi>
+                                                        <mi mathvariant="normal">d</mi>
+                                                    </mrow>
+                                                    <mspace width="0.3333em"></mspace>
+                                                    <mi>n</mi>
+                                                    <mo stretchy="false">)</mo>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">a^{2^{r} m}, a^{2^{r-1} m},
+                                                    \cdots, a^{2^0 m}\pmod{n}
+                                                </annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:1.1814em;vertical-align:-0.1944em;"></span><span
+                                                class="mord"><span class="mord mathnormal">a</span><span
+                                                    class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.88em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight"><span
+                                                                                class="mord mtight"><span
+                                                                                    class="mord mtight">2</span><span
+                                                                                    class="msupsub"><span
+                                                                                        class="vlist-t"><span
+                                                                                            class="vlist-r"><span
+                                                                                                class="vlist"
+                                                                                                style="height:0.7385em;"><span
+                                                                                                    style="top:-2.931em;margin-right:0.0714em;"><span
+                                                                                                        class="pstrut"
+                                                                                                        style="height:2.5em;"></span><span
+                                                                                                        class="sizing reset-size3 size1 mtight"><span
+                                                                                                            class="mord mtight"><span
+                                                                                                                class="mord mathnormal mtight"
+                                                                                                                style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span></span><span
+                                                                                class="mord mathnormal mtight">m</span></span></span></span></span></span></span></span></span><span
+                                                class="mpunct">,</span><span class="mspace"
+                                                style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                    class="mord mathnormal">a</span><span class="msupsub"><span
+                                                        class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                style="height:0.9869em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight"><span
+                                                                                class="mord mtight"><span
+                                                                                    class="mord mtight">2</span><span
+                                                                                    class="msupsub"><span
+                                                                                        class="vlist-t"><span
+                                                                                            class="vlist-r"><span
+                                                                                                class="vlist"
+                                                                                                style="height:0.8913em;"><span
+                                                                                                    style="top:-2.931em;margin-right:0.0714em;"><span
+                                                                                                        class="pstrut"
+                                                                                                        style="height:2.5em;"></span><span
+                                                                                                        class="sizing reset-size3 size1 mtight"><span
+                                                                                                            class="mord mtight"><span
+                                                                                                                class="mord mathnormal mtight"
+                                                                                                                style="margin-right:0.02778em;">r</span><span
+                                                                                                                class="mbin mtight">−</span><span
+                                                                                                                class="mord mtight">1</span></span></span></span></span></span></span></span></span><span
+                                                                                class="mord mathnormal mtight">m</span></span></span></span></span></span></span></span></span><span
+                                                class="mpunct">,</span><span class="mspace"
+                                                style="margin-right:0.1667em;"></span><span class="minner">⋯</span><span
+                                                class="mspace" style="margin-right:0.1667em;"></span><span
+                                                class="mspace" style="margin-right:0.1667em;"></span><span
+                                                class="mpunct">,</span><span class="mspace"
+                                                style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                    class="mord mathnormal">a</span><span class="msupsub"><span
+                                                        class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                style="height:0.9869em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight"><span
+                                                                                class="mord mtight"><span
+                                                                                    class="mord mtight">2</span><span
+                                                                                    class="msupsub"><span
+                                                                                        class="vlist-t"><span
+                                                                                            class="vlist-r"><span
+                                                                                                class="vlist"
+                                                                                                style="height:0.8913em;"><span
+                                                                                                    style="top:-2.931em;margin-right:0.0714em;"><span
+                                                                                                        class="pstrut"
+                                                                                                        style="height:2.5em;"></span><span
+                                                                                                        class="sizing reset-size3 size1 mtight"><span
+                                                                                                            class="mord mtight">0</span></span></span></span></span></span></span></span><span
+                                                                                class="mord mathnormal mtight">m</span></span></span></span></span></span></span></span></span><span
+                                                class="mspace allowbreak"></span><span class="mspace"
+                                                style="margin-right:0.4444em;"></span></span><span class="base"><span
+                                                class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                                class="mopen">(</span><span class="mord"><span class="mord"><span
+                                                        class="mord mathrm">mod</span></span></span><span class="mspace"
+                                                style="margin-right:0.3333em;"></span><span
+                                                class="mord mathnormal">n</span><span
+                                                class="mclose">)</span></span></span></span>，由上一步，这个序列从 <span
+                                    class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1</span></span></span></span> 开始，如果这个序列第一个不为
+                                <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1</span></span></span></span> 的数字不是 <span
+                                    class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mo>−</mo>
+                                                    <mn>1</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">-1</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7278em;vertical-align:-0.0833em;"></span><span
+                                                class="mord">−</span><span class="mord">1</span></span></span></span>，则
+                                <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.4306em;"></span><span
+                                                class="mord mathnormal">n</span></span></span></span>
+                                为合数；否则认为 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.4306em;"></span><span
+                                                class="mord mathnormal">n</span></span></span></span> 在底数
+                                <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>a</mi>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">a</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.4306em;"></span><span
+                                                class="mord mathnormal">a</span></span></span></span>
+                                下通过测试。注意：通过测试有两种情况，一是这个序列第一个不为 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1</span></span></span></span> 的数字是 <span
+                                    class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mo>−</mo>
+                                                    <mn>1</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">-1</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7278em;vertical-align:-0.0833em;"></span><span
+                                                class="mord">−</span><span
+                                                class="mord">1</span></span></span></span>；二是这个序列全部为 <span
+                                    class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1</span></span></span></span>。
+                            </li>
+                        </ul>
+                        <p>可以证明对于任何合数，随机的 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>a</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">a</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">a</span></span></span></span>
+                            通过上述素数的测试概率至多为 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mfrac>
+                                                    <mn>1</mn>
+                                                    <mn>4</mn>
+                                                </mfrac>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">\frac{1}{4}</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span
+                                            class="mord"><span class="mopen nulldelimiter"></span><span
+                                                class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span
+                                                            class="vlist" style="height:0.8451em;"><span
+                                                                style="top:-2.655em;"><span class="pstrut"
+                                                                    style="height:3em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mtight">4</span></span></span></span><span
+                                                                style="top:-3.23em;"><span class="pstrut"
+                                                                    style="height:3em;"></span><span class="frac-line"
+                                                                    style="border-bottom-width:0.04em;"></span></span><span
+                                                                style="top:-3.394em;"><span class="pstrut"
+                                                                    style="height:3em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mtight">1</span></span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.345em;"><span></span></span></span></span></span><span
+                                                class="mclose nulldelimiter"></span></span></span></span></span>。</p>
+                        <p>试着使用以上方法判定素数吧。</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>第一行为正整数 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>T</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">T</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.13889em;">T</span></span></span></span></p>
+                        <p><span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>2</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">2</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">2</span></span></span></span> 到 <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>T</mi>
+                                                <mo>+</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">T+1</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.13889em;">T</span><span
+                                            class="mspace" style="margin-right:0.2222em;"></span><span
+                                            class="mbin">+</span><span class="mspace"
+                                            style="margin-right:0.2222em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">1</span></span></span></span>行，每行一个正整数 <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span>。</p>
+                        <ul>
+                            <li>测试点 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                    <mo>−</mo>
+                                                    <mn>3</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1-3</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7278em;vertical-align:-0.0833em;"></span><span
+                                                class="mord">1</span><span class="mspace"
+                                                style="margin-right:0.2222em;"></span><span class="mbin">−</span><span
+                                                class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">3</span></span></span></span>：保证 <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>T</mi>
+                                                    <mo>=</mo>
+                                                    <mn>1</mn>
+                                                    <mtext>，</mtext>
+                                                    <mi>n</mi>
+                                                    <mo>&lt;</mo>
+                                                    <mn>100000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">T=1，n&lt;100000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut" style="height:0.6833em;"></span><span
+                                                class="mord mathnormal" style="margin-right:0.13889em;">T</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span><span
+                                                class="mrel">=</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:0.7224em;vertical-align:-0.0391em;"></span><span
+                                                class="mord">1</span><span class="mord cjk_fallback">，</span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span
+                                                class="mrel">&lt;</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">100000</span></span></span></span></li>
+                            <li>测试点 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>4</mn>
+                                                    <mo>−</mo>
+                                                    <mn>6</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">4-6</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7278em;vertical-align:-0.0833em;"></span><span
+                                                class="mord">4</span><span class="mspace"
+                                                style="margin-right:0.2222em;"></span><span class="mbin">−</span><span
+                                                class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">6</span></span></span></span>：保证 <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>T</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>1000</mn>
+                                                    <mtext>，</mtext>
+                                                    <mi>n</mi>
+                                                    <mo>&lt;</mo>
+                                                    <mn>1</mn>
+                                                    <msup>
+                                                        <mn>0</mn>
+                                                        <mn>9</mn>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">T\le1000，n&lt;10^9</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.8193em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal" style="margin-right:0.13889em;">T</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span><span
+                                                class="mrel">≤</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:0.7224em;vertical-align:-0.0391em;"></span><span
+                                                class="mord">1000</span><span class="mord cjk_fallback">，</span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span
+                                                class="mrel">&lt;</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut" style="height:0.8141em;"></span><span
+                                                class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                    class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.8141em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>
+                            </li>
+                            <li>测试点 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>7</mn>
+                                                    <mo>−</mo>
+                                                    <mn>10</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">7-10</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7278em;vertical-align:-0.0833em;"></span><span
+                                                class="mord">7</span><span class="mspace"
+                                                style="margin-right:0.2222em;"></span><span class="mbin">−</span><span
+                                                class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">10</span></span></span></span>：保证 <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>T</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>100000</mn>
+                                                    <mtext>，</mtext>
+                                                    <mi>n</mi>
+                                                    <mo>&lt;</mo>
+                                                    <mn>1</mn>
+                                                    <msup>
+                                                        <mn>0</mn>
+                                                        <mn>9</mn>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">T\le100000，n&lt;10^9
+                                                </annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.8193em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal" style="margin-right:0.13889em;">T</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span><span
+                                                class="mrel">≤</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:0.7224em;vertical-align:-0.0391em;"></span><span
+                                                class="mord">100000</span><span class="mord cjk_fallback">，</span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span
+                                                class="mrel">&lt;</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut" style="height:0.8141em;"></span><span
+                                                class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                    class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.8141em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>
+                            </li>
+                        </ul>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>输出<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>T</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">T</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.13889em;">T</span></span></span></span>行</p>
+                        <p>每行一个字符串，素数输出‘Yes’，合数输出‘No’。（不含引号）</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">2
+3
+9
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">Yes
+No
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

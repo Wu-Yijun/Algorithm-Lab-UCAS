@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+-->
+
+<script>
+    function onCopy(elem) {
+        val = elem.parentNode.parentNode.previousElementSibling.firstChild
+        window.getSelection().selectAllChildren(val);
+        document.execCommand("Copy");
+        window.getSelection().removeAllRanges();
+    }
+</script>
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #A. A+B problem (advanced)
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./1A" class="pass active">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">1000ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">A+B problem (advanced)</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <blockquote class="note">
+                            <p>该比赛已结束，您无法在比赛模式下递交该题目。您可以点击“在题库中打开”以普通模式查看和递交本题。</p>
+                        </blockquote>
+                        <h1 id="a%2Bb-problem-(advanced)" tabindex="-1">A+B problem (advanced)</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>Output the sum of two integers <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>A</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">A</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span
+                                            class="mord mathnormal">A</span></span></span></span> and
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>B</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">B</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.05017em;">B</span></span></span></span>.
+                        </p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>There are two lines in the input, containing <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>A</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">A</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span
+                                            class="mord mathnormal">A</span></span></span></span> and
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>B</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">B</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.05017em;">B</span></span></span></span> separately.
+                        </p>
+                        <ul>
+                            <li>Test instances 1-3: guarantee that <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mo>−</mo>
+                                                    <mn>1</mn>
+                                                    <msup>
+                                                        <mn>0</mn>
+                                                        <mn>9</mn>
+                                                    </msup>
+                                                    <mo>≤</mo>
+                                                    <mi>a</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>b</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>1</mn>
+                                                    <msup>
+                                                        <mn>0</mn>
+                                                        <mn>9</mn>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">-10^9 \le a,b\le 10^9
+                                                </annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.9501em;vertical-align:-0.136em;"></span><span
+                                                class="mord">−</span><span class="mord">1</span><span class="mord"><span
+                                                    class="mord">0</span><span class="msupsub"><span
+                                                        class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                style="height:0.8141em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight">9</span></span></span></span></span></span></span></span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span><span
+                                                class="mrel">≤</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:0.8889em;vertical-align:-0.1944em;"></span><span
+                                                class="mord mathnormal">a</span><span class="mpunct">,</span><span
+                                                class="mspace" style="margin-right:0.1667em;"></span><span
+                                                class="mord mathnormal">b</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.8141em;"></span><span
+                                                class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                    class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.8141em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>;
+                            </li>
+                            <li>Test instances 4-6: guarantee that <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>0</mn>
+                                                    <mo>≤</mo>
+                                                    <mi>a</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>b</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>1</mn>
+                                                    <msup>
+                                                        <mn>0</mn>
+                                                        <mn>200</mn>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">0\le a,b\le 10^{200}
+                                                </annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                                class="mord">0</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                style="height:0.8889em;vertical-align:-0.1944em;"></span><span
+                                                class="mord mathnormal">a</span><span class="mpunct">,</span><span
+                                                class="mspace" style="margin-right:0.1667em;"></span><span
+                                                class="mord mathnormal">b</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.8141em;"></span><span
+                                                class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                    class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.8141em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight"><span
+                                                                                class="mord mtight">200</span></span></span></span></span></span></span></span></span></span></span></span>;
+                            </li>
+                            <li>Test instances 7-10: guarantee that <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mo>−</mo>
+                                                    <mn>1</mn>
+                                                    <msup>
+                                                        <mn>0</mn>
+                                                        <mn>200</mn>
+                                                    </msup>
+                                                    <mo>≤</mo>
+                                                    <mi>a</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>b</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>1</mn>
+                                                    <msup>
+                                                        <mn>0</mn>
+                                                        <mn>200</mn>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">-10^{200}\le a,b\le 10^{200}
+                                                </annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.9501em;vertical-align:-0.136em;"></span><span
+                                                class="mord">−</span><span class="mord">1</span><span class="mord"><span
+                                                    class="mord">0</span><span class="msupsub"><span
+                                                        class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                style="height:0.8141em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight"><span
+                                                                                class="mord mtight">200</span></span></span></span></span></span></span></span></span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span><span
+                                                class="mrel">≤</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:0.8889em;vertical-align:-0.1944em;"></span><span
+                                                class="mord mathnormal">a</span><span class="mpunct">,</span><span
+                                                class="mspace" style="margin-right:0.1667em;"></span><span
+                                                class="mord mathnormal">b</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.8141em;"></span><span
+                                                class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                    class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.8141em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight"><span
+                                                                                class="mord mtight">200</span></span></span></span></span></span></span></span></span></span></span></span>.
+                            </li>
+                        </ul>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>Only one line, the sum of <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>A</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">A</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span
+                                            class="mord mathnormal">A</span></span></span></span> and
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>B</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">B</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.05017em;">B</span></span></span></span>.
+                        </p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">1000000000000
+0
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">1000000000000
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

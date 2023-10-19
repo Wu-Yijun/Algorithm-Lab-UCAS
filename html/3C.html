@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+-->
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script>
+        function onCopy(elem) {
+            val = elem.parentNode.parentNode.previousElementSibling.firstChild
+            window.getSelection().selectAllChildren(val);
+            document.execCommand("Copy");
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #C. Low power (optional)
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./3A.html" class="pass ">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./3B.html" class="pass ">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a> <a href="./3C.html" class="pass active">
+                        <span class="id">C</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">1000ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">Low power (optional)</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <blockquote class="note">
+                            <p>该比赛已结束，您无法在比赛模式下递交该题目。您可以点击“在题库中打开”以普通模式查看和递交本题。</p>
+                        </blockquote>
+                        <h1 id="low-power-(optional)" tabindex="-1">Low power (optional)</h1>
+                        <p>选做题不计入课程分数</p>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>You are building advanced chips for machines. Making the chips is easy, but the power supply
+                            turns out to be an issue since the available batteries have varied power outputs.</p>
+                        <p>Consider the problem of <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> machines, each with
+                            two chips, where each chip is powered by <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">k</span></span></span></span> batteries.
+                            Surprisingly, it does not matter how much power each chip gets, but a machine works best
+                            when its two chips have power outputs as close as possible. The power output of a chip is
+                            simply the smallest power output of its <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">k</span></span></span></span> batteries.</p>
+                        <p>You have a stockpile of <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>2</mn>
+                                                <mi>n</mi>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">2nk</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord">2</span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">nk</span></span></span></span> batteries
+                            that you want to assign to the chips. It might not be possible to allocate the batteries so
+                            that in every machine both chips have equal power outputs, but you want to allocate them so
+                            that the differences are as small as possible. To be precise, you want to tell your
+                            customers that in all machines the difference of power outputs of the two chips is at most
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>d</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">d</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord mathnormal">d</span></span></span></span>, and you want to make
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>d</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">d</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord mathnormal">d</span></span></span></span> as small as possible.
+                            To do this you must determine an optimal allocation of the batteries to the machines.
+                        </p>
+                        <p>Consider Sample Input 1. There are 2 machines, each requiring 3 batteries per chip, and a
+                            supply of batteries with power outputs 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12. You can, for
+                            instance, assign the batteries with power outputs 1, 3, 5 to one chip, those with power 2,
+                            4, 12 to the other chip of the same machine, those with power 6, 8, 9 to the third chip, and
+                            those with power 7, 10, 11 to the fourth. The power outputs of the chips are 1, 2, 6, and 7,
+                            respectively, and the difference between power outputs is 1 in both machines. Note that
+                            there are many other ways to achieve this result.</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>The input consists of a single test case. A test case consists of two lines. The first line
+                            contains two positive integers: the number of machines <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> and the number of
+                            batteries per chip <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">k</span></span></span></span> (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>2</mn>
+                                                <mi>n</mi>
+                                                <mi>k</mi>
+                                                <mo>≤</mo>
+                                                <mn>1</mn>
+                                                <msup>
+                                                    <mn>0</mn>
+                                                    <mn>6</mn>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">2nk \leq 10^6</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8304em;vertical-align:-0.136em;"></span><span
+                                            class="mord">2</span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">nk</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.8141em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                            class="vlist" style="height:0.8141em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>).
+                            The second line contains <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>2</mn>
+                                                <mi>n</mi>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">2nk</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord">2</span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">nk</span></span></span></span> integers
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>p</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">p_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal">p</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            specifying the power outputs of the batteries (<span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <msub>
+                                                    <mi>p</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo>≤</mo>
+                                                <mn>1</mn>
+                                                <msup>
+                                                    <mn>0</mn>
+                                                    <mn>9</mn>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1 \leq p_i \leq 10^9</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8304em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal">p</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8141em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                            class="vlist" style="height:0.8141em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>).
+                        </p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>Display the smallest number <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>d</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">d</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord mathnormal">d</span></span></span></span> such that you can
+                            allocate the batteries so that the difference of power outputs of the two chips in each
+                            machine is at most <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>d</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">d</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord mathnormal">d</span></span></span></span>.</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">2 3
+ 1 2 3 4 5 6 7 8 9 10 11 12
+ </code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">1
+ </code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 2</h2>
+                                <pre class="syntax-hl language-input2" tabindex="0"><code class="language-input2">2 2
+ 3 1 3 3 3 3 3 3
+ </code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 2</h2>
+                                <pre class="syntax-hl language-output2" tabindex="0"><code class="language-output2">2
+ </code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="hint" tabindex="-1">Hint</h2>
+                        <p>**Source**: This problem is from ACM/ICPC World Final 2013</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

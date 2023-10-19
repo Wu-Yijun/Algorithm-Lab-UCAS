@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+-->
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script>
+        function onCopy(elem) {
+            val = elem.parentNode.parentNode.previousElementSibling.firstChild
+            window.getSelection().selectAllChildren(val);
+            document.execCommand("Copy");
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #B. River
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./3A.html" class="pass ">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./3B.html" class="pass active">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a> <a href="./3C.html" class="pass ">
+                        <span class="id">C</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">100ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">River</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <blockquote class="note">
+                            <p>该比赛已结束，您无法在比赛模式下递交该题目。您可以点击“在题库中打开”以普通模式查看和递交本题。</p>
+                        </blockquote>
+                        <h1 id="river" tabindex="-1">River</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>Two lovely frogs Alice and Bob live by a river. There are several stones in this river. Every
+                            morning, they will go to the other side of the river to have fun. They cross the river by
+                            jumping from one stone to another. One day, Alice decides to play tricks on Bob. She plans
+                            to remove some stones so that there is no "easy jump" for Bob to across the river any more.
+                            But she has no idea which stones she should remove. She needs your help.</p>
+                        <p>The width of the river is an integer <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>L</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">L</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span
+                                            class="mord mathnormal">L</span></span></span></span> (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>L</mi>
+                                                <mo>≤</mo>
+                                                <mn>1</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>000</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>000</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le L\le 1,000,000,000
+                                            </annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8193em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">L</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8389em;vertical-align:-0.1944em;"></span><span
+                                            class="mord">1</span><span class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">000</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">000</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span
+                                            class="mord">000</span></span></span></span>). We treat the river as a
+                            one-dimensional line segment,with two endpoints A (two frog's home) and B (the other side of
+                            the river). Among the river, there are <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>N</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">N</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">N</span></span></span></span> stones (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>0</mn>
+                                                <mo>≤</mo>
+                                                <mi>N</mi>
+                                                <mo>≤</mo>
+                                                <mn>50</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">0\le N\le 50,000</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">0</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8193em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.10903em;">N</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span
+                                            class="mord">50</span><span class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span
+                                            class="mord">000</span></span></span></span>). The distance from the i-th
+                            stone to side A is <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>D</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">D_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal"
+                                                style="margin-right:0.02778em;">D</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            (<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>0</mn>
+                                                <mo>&lt;</mo>
+                                                <msub>
+                                                    <mi>D</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo>&lt;</mo>
+                                                <mi>L</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">0&lt;D_i&lt;L)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span
+                                            class="mord">0</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8333em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal"
+                                                style="margin-right:0.02778em;">D</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">&lt;</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord mathnormal">L</span><span
+                                            class="mclose">)</span></span></span></span>. Alice would like to remove
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>M</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">M</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">M</span></span></span></span> stones in the
+                            river (<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>0</mn>
+                                                <mo>≤</mo>
+                                                <mi>M</mi>
+                                                <mo>≤</mo>
+                                                <mi>N</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">0\le M\le N</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">0</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8193em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.10903em;">M</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">N</span></span></span></span>) so that with
+                            the rest of the stones, the minimum distance among all possible jumps for Bob is the
+                            largest.
+                        </p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>Each instance contains two lines. The first line contains three integers <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>L</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">L</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span
+                                            class="mord mathnormal">L</span></span></span></span>, <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>N</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">N</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">N</span></span></span></span> and <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>M</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">M</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">M</span></span></span></span>. The second
+                            line gives the positions of <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>M</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">M</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">M</span></span></span></span> stones. No two
+                            stones share the same position.</p>
+                        <p>* 30% test cases guarantee that <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>N</mi>
+                                                <mo>&lt;</mo>
+                                                <mn>20</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">N &lt; 20</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.10903em;">N</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">&lt;</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">20</span></span></span></span>.</p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>For each instance, output a single line with a single integer which is the maximum of the
+                            minimum distance among all possible jumps after removing <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>M</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">M</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">M</span></span></span></span> stones.</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">25 5 2
+ 2 14 11 21 17
+ </code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">4
+ </code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="hint" tabindex="-1">Hint</h2>
+                        <p>In the example, Alice should remove stones with distance <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>2</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">2</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">2</span></span></span></span> and <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>14</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">14</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">14</span></span></span></span>. After removing these two
+                            stones, the minimum distance of jumps is <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>4</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">4</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">4</span></span></span></span>, and there are two jumps with
+                            distance <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>4</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">4</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">4</span></span></span></span>: from <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>17</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">17</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">17</span></span></span></span> to <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>21</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">21</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">21</span></span></span></span>, and from <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>21</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">21</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">21</span></span></span></span> to <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>25</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">25</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">25</span></span></span></span>.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

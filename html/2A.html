@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+-->
+
+<script>
+    function onCopy(elem) {
+        val = elem.parentNode.parentNode.previousElementSibling.firstChild
+        window.getSelection().selectAllChildren(val);
+        document.execCommand("Copy");
+        window.getSelection().removeAllRanges();
+    }
+</script>
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script>
+        function onCopy(elem) {
+            val = elem.parentNode.parentNode.previousElementSibling.firstChild
+            window.getSelection().selectAllChildren(val);
+            document.execCommand("Copy");
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #A. MinMaxMinusMin
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./2A.html" class="pass active">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./2B.html" class="pass ">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">100ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">MinMaxMinusMin</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <blockquote class="note">
+                            <p>该比赛已结束，您无法在比赛模式下递交该题目。您可以点击“在题库中打开”以普通模式查看和递交本题。</p>
+                        </blockquote>
+                        <h1 id="minmaxminusmin" tabindex="-1">MinMaxMinusMin</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p><span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span>
+                            个正整数，放在数组 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>s</mi>
+                                                <mo stretchy="false">[</mo>
+                                                <mn>1</mn>
+                                                <mo stretchy="false">]</mo>
+                                                <mo>…</mo>
+                                                <mi>s</mi>
+                                                <mo stretchy="false">[</mo>
+                                                <mi>n</mi>
+                                                <mo stretchy="false">]</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">s[1]\dots s[n]</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord mathnormal">s</span><span class="mopen">[</span><span
+                                            class="mord">1</span><span class="mclose">]</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="minner">…</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal">s</span><span class="mopen">[</span><span
+                                            class="mord mathnormal">n</span><span
+                                            class="mclose">]</span></span></span></span> 中，给定 <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">k</span></span></span></span>，对 <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>i</mi>
+                                                <mo>≤</mo>
+                                                <mi>n</mi>
+                                                <mo>−</mo>
+                                                <mi>k</mi>
+                                                <mo>+</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le i\le n−k+1</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.7955em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">i</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.6667em;vertical-align:-0.0833em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mspace"
+                                            style="margin-right:0.2222em;"></span><span class="mbin">−</span><span
+                                            class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.7778em;vertical-align:-0.0833em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.03148em;">k</span><span
+                                            class="mspace" style="margin-right:0.2222em;"></span><span
+                                            class="mbin">+</span><span class="mspace"
+                                            style="margin-right:0.2222em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">1</span></span></span></span>，把数组去掉 <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>s</mi>
+                                                <mo stretchy="false">[</mo>
+                                                <mi>i</mi>
+                                                <mo stretchy="false">]</mo>
+                                                <mo separator="true">,</mo>
+                                                <mo>…</mo>
+                                                <mo separator="true">,</mo>
+                                                <mi>s</mi>
+                                                <mo stretchy="false">[</mo>
+                                                <mi>i</mi>
+                                                <mo>+</mo>
+                                                <mi>k</mi>
+                                                <mo>−</mo>
+                                                <mn>1</mn>
+                                                <mo stretchy="false">]</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">s[i],\dots,s[i+k-1]</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord mathnormal">s</span><span class="mopen">[</span><span
+                                            class="mord mathnormal">i</span><span class="mclose">]</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="minner">…</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal">s</span><span class="mopen">[</span><span
+                                            class="mord mathnormal">i</span><span class="mspace"
+                                            style="margin-right:0.2222em;"></span><span class="mbin">+</span><span
+                                            class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.7778em;vertical-align:-0.0833em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.03148em;">k</span><span
+                                            class="mspace" style="margin-right:0.2222em;"></span><span
+                                            class="mbin">−</span><span class="mspace"
+                                            style="margin-right:0.2222em;"></span></span><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord">1</span><span class="mclose">]</span></span></span></span>
+                            之后的数组记为 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>t</mi>
+                                                <mo stretchy="false">(</mo>
+                                                <mi>i</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">t(i)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord mathnormal">t</span><span class="mopen">(</span><span
+                                            class="mord mathnormal">i</span><span
+                                            class="mclose">)</span></span></span></span>。求 <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mrow>
+                                                        <mi>min</mi>
+                                                        <mo>⁡</mo>
+                                                    </mrow>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">\min_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8179em;vertical-align:-0.15em;"></span><span
+                                            class="mop"><span class="mop">min</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>{<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mtext>⁡</mtext>
+                                                <mi>t</mi>
+                                                <mo stretchy="false">(</mo>
+                                                <mi>i</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">⁡t(i)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord">⁡</span><span class="mord mathnormal">t</span><span
+                                            class="mopen">(</span><span class="mord mathnormal">i</span><span
+                                            class="mclose">)</span></span></span></span>中的最大值减去最小值}。</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>两行</p>
+                        <p>第一行为两个整数 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> 和
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">k</span></span></span></span>
+                        </p>
+                        <p>第二行为 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> 个整数,
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>s</mi>
+                                                <mo stretchy="false">[</mo>
+                                                <mn>1</mn>
+                                                <mo stretchy="false">]</mo>
+                                                <mo separator="true">,</mo>
+                                                <mo>…</mo>
+                                                <mo separator="true">,</mo>
+                                                <mi>s</mi>
+                                                <mo stretchy="false">[</mo>
+                                                <mi>n</mi>
+                                                <mo stretchy="false">]</mo>
+                                                <mo separator="true">,</mo>
+                                                <mn>0</mn>
+                                                <mo>≤</mo>
+                                                <mi>s</mi>
+                                                <mo stretchy="false">[</mo>
+                                                <mi>i</mi>
+                                                <mo stretchy="false">]</mo>
+                                                <mo>≤</mo>
+                                                <mn>1</mn>
+                                                <msup>
+                                                    <mn>0</mn>
+                                                    <mn>9</mn>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">s[1],\dots,s[n], 0\le s[i]\le 10^9
+                                            </annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord mathnormal">s</span><span class="mopen">[</span><span
+                                            class="mord">1</span><span class="mclose">]</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="minner">…</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal">s</span><span class="mopen">[</span><span
+                                            class="mord mathnormal">n</span><span class="mclose">]</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">0</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord mathnormal">s</span><span class="mopen">[</span><span
+                                            class="mord mathnormal">i</span><span class="mclose">]</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8141em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                            class="vlist" style="height:0.8141em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>
+                        </p>
+                        <p>测试点1-3: 保证 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                                <mo>≤</mo>
+                                                <mn>100</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n\le 100</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">100</span></span></span></span>.</p>
+                        <p>测试点4-6: 保证 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                                <mo>≤</mo>
+                                                <mn>50000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n\le 50000</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">50000</span></span></span></span>.</p>
+                        <p>测试点7-10: 保证 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                                <mo>≤</mo>
+                                                <mn>100000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n\le 100000</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">100000</span></span></span></span>.</p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>输出一行，为题目要求中的整数。</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">5 2
+1 2 4 8 16
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onclick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">3
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onclick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="hint" tabindex="-1">Hint</h2>
+                        <p>数组中去掉8、16后，1、2、4中最大值与最小值的差为3。</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
