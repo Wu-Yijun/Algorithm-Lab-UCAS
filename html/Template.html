@@ -13,22 +13,49 @@ a href="/d/Algorithm_2023/..."
 to:
 a herf="./**"
 
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
 -->
+
 
 <head>
     <link rel="stylesheet" media="all" href="theme-4.48.21.css">
-    <script>
-        function onCopy(elem) {
-            val = elem.parentNode.parentNode.previousElementSibling.firstChild
-            window.getSelection().selectAllChildren(val);
-            document.execCommand("Copy");
-            window.getSelection().removeAllRanges();
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "1/plus_min.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
         }
-    </script>
+    </style>
 </head>
 
 <body>
 
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 
 </body>
