@@ -13,4 +13,4 @@ UCAS Lab 算法研讨课 圣遗物
 
 - [3A. Count Inversion](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/3A.html)
 - [3B. River](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/3B.html)
-- [3C. Low power (https://optional)](wu-yijun.github.io/Algorithm-Lab-UCAS/html/3C.html)
+- [3C. Low power (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/3C.html)
