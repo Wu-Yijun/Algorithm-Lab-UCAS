@@ -9,7 +9,7 @@ UCAS Lab 算法研讨课 圣遗物
 - [2A. MinMaxMinusMin](wu-yijun.github.io/Algorithm-Lab-UCAS/html/2A.html)
 - [2B. Prime](wu-yijun.github.io/Algorithm-Lab-UCAS/html/2B.html)
 
-### 分治算法
+### 03-04 分治算法
 
 - [3A. Count Inversion](wu-yijun.github.io/Algorithm-Lab-UCAS/html/3A.html)
 - [3B. River](wu-yijun.github.io/Algorithm-Lab-UCAS/html/3B.html)
