@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
+delete a pair of div
+
+-->
+
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "4/MoneyForNothing.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #B. Money for Nothing (optional)
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./4A.html" class="pass ">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./4B.html" class="pass active">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">1000ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">Money for Nothing (optional)</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <h1 id="money-for-nothing-(optional)" tabindex="-1">Money for Nothing (optional)</h1>
+                        <p>选做题不计入课程分数</p>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>In this problem you will be solving one of the most profound challenges of humans across the
+                            world since the beginning of time - how to make lots of money.</p>
+                        <p>You are a middleman in the widget market. Your job is to buy widgets from widget producer
+                            companies and sell them to widget consumer companies. Each widget consumer company has an
+                            open request for one widget per day, until some end date, and a price at which it is willing
+                            to buy the widgets. On the other hand, each widget producer company has a start date at
+                            which it can start delivering widgets and a price at which it will deliver each widget.</p>
+                        <p>Due to fair competition laws, you can sign a contract with only one producer company and only
+                            one consumer company. You will buy widgets from the producer company, one per day, starting
+                            on the day it can start delivering, and ending on the date specified by the consumer
+                            company. On each of those days you earn the difference between the producer's selling price
+                            and the consumer's buying price.</p>
+                        <p>Your goal is to choose the consumer company and the producer company that will maximize your
+                            profits.</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>The first line of input contains two integers <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>m</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">m</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">m</span></span></span></span> and <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>m</mi>
+                                                <mo separator="true">;</mo>
+                                                <mi>n</mi>
+                                                <mo>≤</mo>
+                                                <mn>500000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1 \le m; n \le 500 000</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8304em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal">m</span><span class="mpunct">;</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">500000</span></span></span></span>) denoting the number of
+                            producer and consumer companies in the market, respectively. It is followed by m lines, the
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msup>
+                                                    <mi>i</mi>
+                                                    <mrow>
+                                                        <mi>t</mi>
+                                                        <mi>h</mi>
+                                                    </mrow>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">i^{th}</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8491em;"></span><span class="mord"><span
+                                                class="mord mathnormal">i</span><span class="msupsub"><span
+                                                    class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.8491em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">t</span><span
+                                                                            class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span>
+                            of which contains two integers <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>p</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">p_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal">p</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            and <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>d</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">d_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">d</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            (<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <msub>
+                                                    <mi>p</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo separator="true">;</mo>
+                                                <msub>
+                                                    <mi>d</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo>≤</mo>
+                                                <mn>1</mn>
+                                                <msup>
+                                                    <mn>0</mn>
+                                                    <mn>9</mn>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1 \le p_i; d_i \le 10^9
+                                            </annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8889em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal">p</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">;</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal">d</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8141em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                            class="vlist" style="height:0.8141em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>),
+                            the price (in dollars) at which the <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msup>
+                                                    <mi>i</mi>
+                                                    <mrow>
+                                                        <mi>t</mi>
+                                                        <mi>h</mi>
+                                                    </mrow>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">i^{th}</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8491em;"></span><span class="mord"><span
+                                                class="mord mathnormal">i</span><span class="msupsub"><span
+                                                    class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.8491em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">t</span><span
+                                                                            class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span>
+                            producer sells one widget and the day on which the first widget will be available from this
+                            company. Then follow <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> lines, the <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msup>
+                                                    <mi>j</mi>
+                                                    <mrow>
+                                                        <mi>t</mi>
+                                                        <mi>h</mi>
+                                                    </mrow>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">j^{th}</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1.0435em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal"
+                                                style="margin-right:0.05724em;">j</span><span class="msupsub"><span
+                                                    class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.8491em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">t</span><span
+                                                                            class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span>
+                            of which contains two integers <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>q</mi>
+                                                    <mi>j</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">q_j</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span
+                                            class="mord"><span class="mord mathnormal"
+                                                style="margin-right:0.03588em;">q</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight"
+                                                                        style="margin-right:0.05724em;">j</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>
+                            and <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>e</mi>
+                                                    <mi>j</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">e_j</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span
+                                            class="mord"><span class="mord mathnormal">e</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight"
+                                                                        style="margin-right:0.05724em;">j</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>
+                            (<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <msub>
+                                                    <mi>q</mi>
+                                                    <mi>j</mi>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>e</mi>
+                                                    <mi>j</mi>
+                                                </msub>
+                                                <mo>≤</mo>
+                                                <mn>1</mn>
+                                                <msup>
+                                                    <mn>0</mn>
+                                                    <mn>9</mn>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1 \le q_j,e_j\le 10^9</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.9221em;vertical-align:-0.2861em;"></span><span
+                                            class="mord"><span class="mord mathnormal"
+                                                style="margin-right:0.03588em;">q</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight"
+                                                                        style="margin-right:0.05724em;">j</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.2861em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal">e</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight"
+                                                                        style="margin-right:0.05724em;">j</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.2861em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8141em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                            class="vlist" style="height:0.8141em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>),
+                            the price (in dollars) at which the jth consumer is willing to buy widgets and the day
+                            immediately after the day on which the last widget has to be delivered to this company.
+                        </p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>Display the maximum total number of dollars you can earn. If there is no way to sign
+                            contracts that gives you any profit, display <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>0</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">0</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">0</span></span></span></span>.</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">2 2
+1 3
+2 1
+3 5
+7 2
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">5
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 2</h2>
+                                <pre class="syntax-hl language-input2" tabindex="0"><code class="language-input2">1 2
+10 10
+9 11
+11 9
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 2</h2>
+                                <pre class="syntax-hl language-output2" tabindex="0"><code class="language-output2">0
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="hint" tabindex="-1">Hint</h2>
+                        <p>source: ACM-ICPC world final 2017 D</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
