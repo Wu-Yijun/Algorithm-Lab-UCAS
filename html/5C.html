@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
+delete a pair of div
+
+-->
+
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "5/Posterize.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #C. Posterize (optional)
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./5A.html" class="pass ">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a
+                        href="./5B.html" class="pass ">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a> <a
+                        href="./5C.html" class="pass active">
+                        <span class="id">C</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">1000ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">Posterize (optional)</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <h1 id="posterize-(optional)" tabindex="-1">Posterize (optional)</h1>
+                        <p>选做题不计入课程分数</p>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>Pixels in a digital picture can be represented with three integers in the range 0 to 255 that
+                            indicate the intensity of the red, green, and blue colors. To compress an image or to create
+                            an artistic effect, many photo-editing tools include a "posterize" operation which works as
+                            follows. Each color channel is examined separately; this problem focuses only on the red
+                            channel. Rather than allow all integers from 0 to 255 for the red channel, a posterized
+                            image allows at most k integers from this range. Each pixel's original red intensity is
+                            replaced with the nearest of the allowed integers. The photo-editing tool selects a set of k
+                            integers that minimizes the sum of the squared errors introduced across all pixels in the
+                            original image. If there are <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> pixels that have
+                            original red values <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>r</mi>
+                                                    <mn>1</mn>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <mo>…</mo>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>r</mi>
+                                                    <mi>n</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">r_1, \ldots, r_n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal"
+                                                style="margin-right:0.02778em;">r</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3011em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">1</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="minner">…</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal" style="margin-right:0.02778em;">r</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.1514em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">n</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,
+                            and k allowed integers <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>v</mi>
+                                                    <mn>1</mn>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <mo>…</mo>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>v</mi>
+                                                    <mi>k</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">v_1, \ldots, v_k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal"
+                                                style="margin-right:0.03588em;">v</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3011em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">1</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="minner">…</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal" style="margin-right:0.03588em;">v</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3361em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight"
+                                                                        style="margin-right:0.03148em;">k</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,
+                            the sum of squared errors is defined as</p>
+                        <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                            <semantics>
+                                                <mrow>
+                                                    <munderover>
+                                                        <mo>∑</mo>
+                                                        <mrow>
+                                                            <mi>i</mi>
+                                                            <mo>=</mo>
+                                                            <mn>1</mn>
+                                                        </mrow>
+                                                        <mi>n</mi>
+                                                    </munderover>
+                                                    <munder>
+                                                        <mrow>
+                                                            <mi>min</mi>
+                                                            <mo>⁡</mo>
+                                                        </mrow>
+                                                        <mrow>
+                                                            <mn>1</mn>
+                                                            <mo>≤</mo>
+                                                            <mi>j</mi>
+                                                            <mo>≤</mo>
+                                                            <mi>k</mi>
+                                                        </mrow>
+                                                    </munder>
+                                                    <mo stretchy="false">(</mo>
+                                                    <msub>
+                                                        <mi>r</mi>
+                                                        <mi>i</mi>
+                                                    </msub>
+                                                    <mo>−</mo>
+                                                    <msub>
+                                                        <mi>v</mi>
+                                                        <mi>j</mi>
+                                                    </msub>
+                                                    <msup>
+                                                        <mo stretchy="false">)</mo>
+                                                        <mn>2</mn>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">\sum_{i = 1}^{n} \min _{1\le
+                                                    j\le k} (r_i - v_j)^2
+                                                </annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:2.9291em;vertical-align:-1.2777em;"></span><span
+                                                class="mop op-limits"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:1.6514em;"><span
+                                                                style="top:-1.8723em;margin-left:0em;"><span
+                                                                    class="pstrut" style="height:3.05em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">i</span><span
+                                                                            class="mrel mtight">=</span><span
+                                                                            class="mord mtight">1</span></span></span></span><span
+                                                                style="top:-3.05em;"><span class="pstrut"
+                                                                    style="height:3.05em;"></span><span><span
+                                                                        class="mop op-symbol large-op">∑</span></span></span><span
+                                                                style="top:-4.3em;margin-left:0em;"><span class="pstrut"
+                                                                    style="height:3.05em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">n</span></span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:1.2777em;"><span></span></span></span></span></span><span
+                                                class="mspace" style="margin-right:0.1667em;"></span><span
+                                                class="mop op-limits"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.6679em;"><span
+                                                                style="top:-2.3479em;margin-left:0em;"><span
+                                                                    class="pstrut" style="height:3em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mtight">1</span><span
+                                                                            class="mrel mtight">≤</span><span
+                                                                            class="mord mathnormal mtight"
+                                                                            style="margin-right:0.05724em;">j</span><span
+                                                                            class="mrel mtight">≤</span><span
+                                                                            class="mord mathnormal mtight"
+                                                                            style="margin-right:0.03148em;">k</span></span></span></span><span
+                                                                style="top:-3em;"><span class="pstrut"
+                                                                    style="height:3em;"></span><span><span
+                                                                        class="mop">min</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.8882em;"><span></span></span></span></span></span><span
+                                                class="mopen">(</span><span class="mord"><span class="mord mathnormal"
+                                                    style="margin-right:0.02778em;">r</span><span class="msupsub"><span
+                                                        class="vlist-t vlist-t2"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.3117em;"><span
+                                                                    style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mathnormal mtight">i</span></span></span></span><span
+                                                                class="vlist-s">​</span></span><span
+                                                            class="vlist-r"><span class="vlist"
+                                                                style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                                class="mspace" style="margin-right:0.2222em;"></span><span
+                                                class="mbin">−</span><span class="mspace"
+                                                style="margin-right:0.2222em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:1.1502em;vertical-align:-0.2861em;"></span><span
+                                                class="mord"><span class="mord mathnormal"
+                                                    style="margin-right:0.03588em;">v</span><span class="msupsub"><span
+                                                        class="vlist-t vlist-t2"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.3117em;"><span
+                                                                    style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mathnormal mtight"
+                                                                            style="margin-right:0.05724em;">j</span></span></span></span><span
+                                                                class="vlist-s">​</span></span><span
+                                                            class="vlist-r"><span class="vlist"
+                                                                style="height:0.2861em;"><span></span></span></span></span></span></span><span
+                                                class="mclose"><span class="mclose">)</span><span class="msupsub"><span
+                                                        class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                                style="height:0.8641em;"><span
+                                                                    style="top:-3.113em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>
+                        </p>
+                        <p>Your task is to compute the minimum achievable sum of squared errors, given parameter <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">k</span></span></span></span> and a
+                            description of the red intensities of an image's pixels.</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>The first line of the input contains two integers <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>d</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">d</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord mathnormal">d</span></span></span></span> (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>d</mi>
+                                                <mo>≤</mo>
+                                                <mn>256</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le d\le 256</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8304em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">d</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">256</span></span></span></span>), the number of distinct red
+                            values that occur in the original image, and <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">k</span></span></span></span> (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>k</mi>
+                                                <mo>≤</mo>
+                                                <mi>d</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le k\le d</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8304em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.03148em;">k</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord mathnormal">d</span></span></span></span>), the number of
+                            distinct red values allowed in the posterized image. The remaining <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>d</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">d</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord mathnormal">d</span></span></span></span> lines indicate the
+                            number of pixels of the image having various red values. Each such line contains two
+                            integers <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>r</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">r</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.02778em;">r</span></span></span></span> (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>0</mn>
+                                                <mo>≤</mo>
+                                                <mi>r</mi>
+                                                <mo>≤</mo>
+                                                <mn>255</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">0\le r\le 255</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">0</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.02778em;">r</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">255</span></span></span></span>) and <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>p</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">p</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal">p</span></span></span></span> (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>p</mi>
+                                                <mo>≤</mo>
+                                                <msup>
+                                                    <mn>2</mn>
+                                                    <mn>26</mn>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le p\le2^{26}</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8304em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal">p</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.8141em;"></span><span
+                                            class="mord"><span class="mord">2</span><span class="msupsub"><span
+                                                    class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.8141em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mtight">26</span></span></span></span></span></span></span></span></span></span></span></span>),
+                            where <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>r</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">r</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.02778em;">r</span></span></span></span> is a red
+                            intensity value and <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>p</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">p</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal">p</span></span></span></span> is the number of
+                            pixels having red intensity <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>r</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">r</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.02778em;">r</span></span></span></span>. Those <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>d</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">d</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span
+                                            class="mord mathnormal">d</span></span></span></span> lines are given in
+                            increasing order of red value.</p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>Display the sum of the squared errors for an optimally chosen set of <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>k</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">k</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6944em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.03148em;">k</span></span></span></span> allowed
+                            integer values.</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">2 1
+50 20000
+150 10000
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">66670000
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 2</h2>
+                                <pre class="syntax-hl language-input2" tabindex="0"><code class="language-input2">2 2
+50 20000
+150 10000
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 2</h2>
+                                <pre class="syntax-hl language-output2" tabindex="0"><code class="language-output2">0
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 3</h2>
+                                <pre class="syntax-hl language-input3" tabindex="0"><code class="language-input3">4 2
+0 30000
+25 30000
+50 30000
+255 30000
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 3</h2>
+                                <pre class="syntax-hl language-output3" tabindex="0"><code class="language-output3">37500000
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="hint" tabindex="-1">Hint</h2>
+                        <p>Source: ACM/ICPC World Final 2017</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

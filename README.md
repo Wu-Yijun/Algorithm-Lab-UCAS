@@ -16,3 +16,10 @@ UCAS Lab 算法研讨课 圣遗物
 - [3C. Low power (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/3C.html)
 - [4A. Draw a circle](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/4A.html)
 - [4B. Money for Nothing (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/4B.html)
+
+
+### 05-06 动态规划
+
+- [5A. DNA Sequence Alignment](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/5A.html)
+- [5B. Longest Ordered Subsequence](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/5B.html)
+- [5C. Posterize (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/5C.html)

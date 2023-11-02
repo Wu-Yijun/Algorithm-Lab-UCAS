@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
+delete a pair of div
+
+-->
+
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "5/LongestOrderedSubsequence.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #B. Longest Ordered Subsequence
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./5A.html" class="pass ">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a
+                        href="./5B.html" class="pass active">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a> <a
+                        href="./5C.html" class="pass ">
+                        <span class="id">C</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">500ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">Longest Ordered Subsequence</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <h1 id="longest-ordered-subsequence" tabindex="-1">Longest Ordered Subsequence</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>A numeric sequence of <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">a_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">a</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            is ordered if <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mn>1</mn>
+                                                </msub>
+                                                <mo>&lt;</mo>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mn>2</mn>
+                                                </msub>
+                                                <mo>&lt;</mo>
+                                                <mo>⋯</mo>
+                                                <mo>&lt;</mo>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mi>N</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">a_1 &lt; a_2 &lt; \cdots &lt; a_N
+                                            </annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">a</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3011em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">1</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">&lt;</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">a</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3011em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">2</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">&lt;</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span
+                                            class="minner">⋯</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.5806em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">a</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3283em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight"
+                                                                        style="margin-right:0.10903em;">N</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.
+                            Let the subsequence of the given numeric sequence <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mo stretchy="false">(</mo>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mn>1</mn>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mn>2</mn>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <mo>…</mo>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mi>N</mi>
+                                                </msub>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">(a_1, a_2, \ldots, a_N)
+                                            </annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mopen">(</span><span class="mord"><span
+                                                class="mord mathnormal">a</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3011em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">1</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal">a</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3011em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">2</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="minner">…</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal">a</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3283em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight"
+                                                                        style="margin-right:0.10903em;">N</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mclose">)</span></span></span></span> be any sequence <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mo stretchy="false">(</mo>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mrow>
+                                                        <mi>i</mi>
+                                                        <mi mathvariant="normal">_</mi>
+                                                        <mn>1</mn>
+                                                    </mrow>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mrow>
+                                                        <mi>i</mi>
+                                                        <mi mathvariant="normal">_</mi>
+                                                        <mn>2</mn>
+                                                    </mrow>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <mi mathvariant="normal">.</mi>
+                                                <mi mathvariant="normal">.</mi>
+                                                <mi mathvariant="normal">.</mi>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mrow>
+                                                        <mi>i</mi>
+                                                        <mi mathvariant="normal">_</mi>
+                                                        <mi>K</mi>
+                                                    </mrow>
+                                                </msub>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">(a_{i\_1}, a_{i\_2}, ..., a_{i\_K})
+                                            </annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1.117em;vertical-align:-0.367em;"></span><span
+                                            class="mopen">(</span><span class="mord"><span
+                                                class="mord mathnormal">a</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">i</span><span
+                                                                            class="mord mtight">_1</span></span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.367em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal">a</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">i</span><span
+                                                                            class="mord mtight">_2</span></span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.367em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">...</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal">a</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3283em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">i</span><span
+                                                                            class="mord mtight"
+                                                                            style="margin-right:0.02778em;">_</span><span
+                                                                            class="mord mathnormal mtight"
+                                                                            style="margin-right:0.07153em;">K</span></span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.367em;"><span></span></span></span></span></span></span><span
+                                            class="mclose">)</span></span></span></span>, where <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>&lt;</mo>
+                                                <mo>=</mo>
+                                                <msub>
+                                                    <mi>i</mi>
+                                                    <mn>1</mn>
+                                                </msub>
+                                                <mo>&lt;</mo>
+                                                <msub>
+                                                    <mi>i</mi>
+                                                    <mn>2</mn>
+                                                </msub>
+                                                <mo>&lt;</mo>
+                                                <mo>⋯</mo>
+                                                <mo>&lt;</mo>
+                                                <msub>
+                                                    <mi>i</mi>
+                                                    <mi>K</mi>
+                                                </msub>
+                                                <mo>&lt;</mo>
+                                                <mo>=</mo>
+                                                <mi>N</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1 &lt;= i_1 &lt; i_2 &lt; \cdots
+                                                &lt; i_K &lt;= N</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">&lt;=</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8095em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">i</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3011em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">1</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">&lt;</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8095em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">i</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3011em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">2</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">&lt;</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span
+                                            class="minner">⋯</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8095em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">i</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3283em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight"
+                                                                        style="margin-right:0.07153em;">K</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">&lt;=</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">N</span></span></span></span>. For example,
+                            sequence <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mo stretchy="false">(</mo>
+                                                <mn>1</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>7</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>3</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>5</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>9</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>4</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>8</mn>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">(1, 7, 3, 5, 9, 4, 8)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mopen">(</span><span class="mord">1</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">7</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">3</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">5</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">9</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">4</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">8</span><span
+                                            class="mclose">)</span></span></span></span> has ordered subsequences, e.
+                            g., <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mo stretchy="false">(</mo>
+                                                <mn>1</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>7</mn>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">(1, 7)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mopen">(</span><span class="mord">1</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">7</span><span
+                                            class="mclose">)</span></span></span></span>, <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mo stretchy="false">(</mo>
+                                                <mn>3</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>4</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>8</mn>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">(3, 4, 8)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mopen">(</span><span class="mord">3</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">4</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">8</span><span
+                                            class="mclose">)</span></span></span></span> and many others. All longest
+                            ordered subsequences are of length <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>4</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">4</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">4</span></span></span></span>, e. g., <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mo stretchy="false">(</mo>
+                                                <mn>1</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>3</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>5</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>8</mn>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">(1, 3, 5, 8)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mopen">(</span><span class="mord">1</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">3</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">5</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">8</span><span
+                                            class="mclose">)</span></span></span></span>.</p>
+                        <p>Your program, when given the numeric sequence, must find the length of its longest ordered
+                            subsequence.</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>The first line of input contains the length of sequence <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>N</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">N</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">N</span></span></span></span>. The second
+                            line contains the elements of sequence - <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>N</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">N</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">N</span></span></span></span> integers in
+                            the range from <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>0</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">0</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">0</span></span></span></span> to <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>10000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">10000</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">10000</span></span></span></span> each, separated by spaces.
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>N</mi>
+                                                <mo>≤</mo>
+                                                <mn>1000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le N\le 1000</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8193em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.10903em;">N</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">1000</span></span></span></span>. But there is one test case
+                            with <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>N</mi>
+                                                <mo>=</mo>
+                                                <mn>1000000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">N = 1000000</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.10903em;">N</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">=</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">1000000</span></span></span></span>.</p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>Output file must contain a single integer - the length of the longest ordered subsequence of
+                            the given sequence.</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">7
+1 7 3 5 9 4 8
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">4
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
