@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
+delete a pair of div
+
+-->
+
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "6/AlicesFood.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #A. Alice's food
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./6A.html" class="pass active">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./6B.html" class="pass ">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a> <a href="./6C.html" class="pass ">
+                        <span class="id">C</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">100ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">Alice's food</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <blockquote class="note">
+                            <p>该比赛已结束，您无法在比赛模式下递交该题目。您可以点击“在题库中打开”以普通模式查看和递交本题。</p>
+                        </blockquote>
+                        <h1 id="alice's-food" tabindex="-1">Alice's food</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>面对夜市上琳琅满目的美食，吃货 Alice 正在犯难。夜市上有 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span>
+                            种食物。每种都是不可分割地一份一份出售的。Alice 是一个珍惜食物的好孩子（吃货），所以买到的食物她都会吃完不浪费。Alice
+                            当然想尝试尽量多不同的美味，所以同一种食物她不会重复购买，即最多只会买一份。每份食物都有一个营养价值和美味指数。Alice当然想吃得又健康又美味，所以她今晚的目标就是所吃食物的营养价值总和不能少于<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>x</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">x</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">x</span></span></span></span>，而美味指数总和不能少于<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>y</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">y</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal"
+                                            style="margin-right:0.03588em;">y</span></span></span></span>。精明的 Alice
+                            当然想省下钱来明天再吃一顿，所以她想花最少的钱实现她的目标。</p>
+                        <p>所以 Alice 来求助同班的天才程序员 Bob，就是你啦。她告诉你 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span>
+                            种食物的营养价值，美味指数和价格，以及她的目标 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>x</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">x</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">x</span></span></span></span> 和 <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>y</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">y</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal"
+                                            style="margin-right:0.03588em;">y</span></span></span></span>。你要告诉她最少要花多少钱才能达到目标。
+                        </p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>从标准文件输入，第一行包括两个整数 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>x</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">x</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">x</span></span></span></span> 和 <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>y</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">y</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal"
+                                            style="margin-right:0.03588em;">y</span></span></span></span> ，由一个空格隔开
+                            (<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>x</mi>
+                                                <mo>≤</mo>
+                                                <mn>21</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>y</mi>
+                                                <mo>≤</mo>
+                                                <mn>79</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le x\le 21,1\le y\le 79
+                                            </annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">x</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.8389em;vertical-align:-0.1944em;"></span><span
+                                            class="mord">21</span><span class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">1</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8304em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.03588em;">y</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">79</span></span></span></span>)，表示 Alice 今晚的营养目标和美味目标。第二行包括一个整数
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> (<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>n</mi>
+                                                <mo>≤</mo>
+                                                <mn>1000</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le n\le 1000</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">1000</span></span></span></span>) 表示可选择的食物数量。以下 <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> 行包括每种食物的描述：第 <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>i</mi>
+                                                <mo>+</mo>
+                                                <mn>2</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">i+2</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7429em;vertical-align:-0.0833em;"></span><span
+                                            class="mord mathnormal">i</span><span class="mspace"
+                                            style="margin-right:0.2222em;"></span><span class="mbin">+</span><span
+                                            class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">2</span></span></span></span> 行包括三个整数 <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>x</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>y</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo separator="true">,</mo>
+                                                <msub>
+                                                    <mi>p</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">x_i,y_i,p_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal">x</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal" style="margin-right:0.03588em;">y</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord"><span
+                                                class="mord mathnormal">p</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            (<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <msub>
+                                                    <mi>x</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo>≤</mo>
+                                                <mn>21</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <msub>
+                                                    <mi>y</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo>≤</mo>
+                                                <mn>79</mn>
+                                                <mo separator="true">,</mo>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <msub>
+                                                    <mi>p</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                                <mo>≤</mo>
+                                                <mn>800</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">1\le x_i\le 21,1\le y_i\le 79,1\le
+                                                p_i\le 800</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.786em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">x</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span
+                                            class="mord">21</span><span class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">1</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8304em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal"
+                                                style="margin-right:0.03588em;">y</span><span class="msupsub"><span
+                                                    class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span
+                                            class="mord">79</span><span class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord">1</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.8304em;vertical-align:-0.1944em;"></span><span
+                                            class="mord"><span class="mord mathnormal">p</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span><span
+                                            class="mrel">≤</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">800</span></span></span></span>)，分别为该种食物的营养价值，美味指数和价格。
+                        </p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>你的程序应该输出一个整数，表示所选食物的最小总价格，且其营养价值总和不小于<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>x</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">x</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">x</span></span></span></span>，美味指数总和不小于<span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>y</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">y</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal"
+                                            style="margin-right:0.03588em;">y</span></span></span></span>。</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">5 60
+5
+3 36 120
+10 25 129
+5 50 250
+1 45 130
+4 20 119
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">249
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

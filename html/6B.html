@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
+delete a pair of div
+
+-->
+
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "6/跳舞机.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #B. 跳舞机
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./6A.html" class="pass ">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./6B.html" class="pass active">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a> <a href="./6C.html" class="pass ">
+                        <span class="id">C</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">100ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">跳舞机</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <blockquote class="note">
+                            <p>该比赛已结束，您无法在比赛模式下递交该题目。您可以点击“在题库中打开”以普通模式查看和递交本题。</p>
+                        </blockquote>
+                        <h1 id="%E8%B7%B3%E8%88%9E%E6%9C%BA" tabindex="-1">跳舞机</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>小A最近在练习跳舞毯。一个跳舞毯上有四个代表上下左右的按钮，屏幕上会依次展示四个方向的箭头。当某个方向的箭头出现的时候，小A必须用脚（左右脚都可以）踩一下相应的按钮。我们假定</p>
+                        <ul>
+                            <li>小A刚开始左脚在左箭头，右脚在右箭头上；</li>
+                            <li>脚<strong>踩</strong>一下箭头需耗费一个单位的能量；</li>
+                            <li>脚从一个箭头<strong>移动</strong>到另一个箭头需要额外消耗能量（见下表）；</li>
+                            <li>双脚不能同时踩在一个按钮上。</li>
+                        </ul>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>L</th>
+                                    <th>R</th>
+                                    <th>U</th>
+                                    <th>D</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>L</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>R</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>3</td>
+                                    <td rowspan="2">2</td>
+                                </tr>
+                                <tr>
+                                    <td>U</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>D</td>
+                                    <td>1</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>第i行第j列表示从i箭头到j箭头移动所消耗的能量。</p>
+                        <p>在给定跳舞毯的箭头序列后，请帮助小A计算如何跳舞才能够消耗最少的能量。</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>第一行包含一个整数n (1&lt;=n&lt;=10)；接下来n行，每行包含一个由LRUD四个字母组成的字符串（长度在1-1000000之间），四个字母分别代表左右上下。</p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>对于每行，输出一个整数，表示所需要的最少能量</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">1
+RLUDLRDRD
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">17
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="hint" tabindex="-1">Hint</h2>
+                        <p>**样例解析：**</p>
+                        <p>前两个字符RL：没有发生移动（消耗2个能量）；</p>
+                        <p>接下来两个字符UD：右脚从R移动到U踩一下，接着移动到D踩一下（消耗7点能量）；</p>
+                        <p>接下来两个字符LR：左脚踩一下L并移动到R（消耗5点能量）；</p>
+                        <p>后续DRD三个字符：不需要移动（消耗3点能量）。</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
