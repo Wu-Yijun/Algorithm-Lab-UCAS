@@ -23,3 +23,13 @@ UCAS Lab 算法研讨课 圣遗物
 - [5A. DNA Sequence Alignment](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/5A.html)
 - [5B. Longest Ordered Subsequence](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/5B.html)
 - [5C. Posterize (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/5C.html)
+- [6A. Alice's food](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/6A.html)
+- [6B. 跳舞机](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/6B.html)
+- [6C. Branch Assignment (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/6C.html)
+
+
+### 07-08 贪心算法
+
+- [7A. Shortest Path](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/7A.html)
+- [7B. Largest Number](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/7B.html)
+- [7C. Swap Space (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/7C.html)
