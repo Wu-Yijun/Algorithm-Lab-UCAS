@@ -33,3 +33,6 @@ UCAS Lab 算法研讨课 圣遗物
 - [7A. Shortest Path](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/7A.html)
 - [7B. Largest Number](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/7B.html)
 - [7C. Swap Space (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/7C.html)
+- [8A. 使徒行者](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/8A.html)
+- [8B. 中位数](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/8B.html)
+- [8C. Wireless is the New Fiber (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/8C.html)

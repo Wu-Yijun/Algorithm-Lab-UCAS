@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
+delete a pair of div
+
+-->
+
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "8/WirelessIsTheNewFiber.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #C. Wireless is the New Fiber (optional)
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./8A.html" class="pass ">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./8B.html" class="pass ">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a> <a href="./8C.html" class="pass active">
+                        <span class="id">C</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">1000ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">Wireless is the New Fiber (optional)</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <h1 id="wireless-is-the-new-fiber-(optional)" tabindex="-1">Wireless is the New Fiber (optional)
+                        </h1>
+                        <p>选做题不计入课程分数</p>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>A new type of unbounded-bandwidth wireless communication has just been tested and proved to
+                            be a suitable replacement for the existing, fiber-based communications network, which is
+                            struggling to keep up with traffic growth. You have been charged with deciding the layout of
+                            the new communications network. The current communications network consists of a set of
+                            nodes (which route messages), and links of fiber, each of which connects two different
+                            nodes. For each pair of nodes, there exists at least one way (but possibly more, for
+                            bandwidth purposes) to travel along the fiber between the two.</p>
+                        <p>The new communications network will not have any fiber. Instead, it will have wireless links,
+                            each connecting two nodes. These links have unbounded bandwidth but are expensive, so it has
+                            been decided that as few of these links will be built as possible to provide connectivity;
+                            for each pair of nodes there should be exactly one way to travel between them along the
+                            wireless links. Moreover, you discovered that the nodes have each been built with a
+                            particular number of connections in mind. For each node, if it will be connected to a
+                            different number of links than it is today, it will have to be reorganized, and that is
+                            costly.</p>
+                        <p>Your task is to design the new network so that it has precisely one path between each pair of
+                            nodes while minimizing the number of nodes that do not have the same number of connections
+                            as in the original network. Figure 1 shows the original network and a solution for Sample
+                            Input 1.</p>
+                        <div id="xss-id-fiber:sample1" class="figure">
+                            <center>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p><img src="./images/8C-1-a.png"></p>
+                                            </td>
+                                            <td>
+                                                <p><img src="./images/8C-1-b.png"></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>(a) The original fiber network.</p>
+                                            </td>
+                                            <td>
+                                                <p>(b) One possible solution. The number of links has changed for three
+                                                    nodes: 1, 2 and 5.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="caption">
+                                    <b>Figure 1</b>: Illustration of Sample Input 1.
+                                </div>
+                            </center>
+                        </div>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>The input begins with a line containing two integers <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                                <mo stretchy="false">(</mo>
+                                                <mn>2</mn>
+                                                <mo>≤</mo>
+                                                <mi>n</mi>
+                                                <mo>≤</mo>
+                                                <mn>1</mn>
+                                                <msup>
+                                                    <mn>0</mn>
+                                                    <mn>4</mn>
+                                                </msup>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n (2\le n\le 10^4)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mopen">(</span><span
+                                            class="mord">2</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:1.0641em;vertical-align:-0.25em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                            class="vlist" style="height:0.8141em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">4</span></span></span></span></span></span></span></span><span
+                                            class="mclose">)</span></span></span></span> and <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>m</mi>
+                                                <mo stretchy="false">(</mo>
+                                                <mn>1</mn>
+                                                <mo>≤</mo>
+                                                <mi>m</mi>
+                                                <mo>≤</mo>
+                                                <mn>1</mn>
+                                                <msup>
+                                                    <mn>0</mn>
+                                                    <mn>5</mn>
+                                                </msup>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">m (1\le m\le 10^5)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mord mathnormal">m</span><span class="mopen">(</span><span
+                                            class="mord">1</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                            class="mord mathnormal">m</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:1.0641em;vertical-align:-0.25em;"></span><span
+                                            class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                            class="vlist" style="height:0.8141em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight">5</span></span></span></span></span></span></span></span><span
+                                            class="mclose">)</span></span></span></span>, denoting the number of nodes
+                            and the number of fiber links in the existing network. The nodes are numbered from <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mn>0</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">0</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">0</span></span></span></span> to <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                                <mo>−</mo>
+                                                <mn>1</mn>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n − 1</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mspace"
+                                            style="margin-right:0.2222em;"></span><span class="mbin">−</span><span
+                                            class="mspace" style="margin-right:0.2222em;"></span></span><span
+                                        class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                            class="mord">1</span></span></span></span>. Each of the next <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>m</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">m</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">m</span></span></span></span> lines contains two
+                            distinct integers <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">a_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">a</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            and <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>b</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">b_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">b</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,
+                            denoting the fact that the <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msup>
+                                                    <mi>i</mi>
+                                                    <mrow>
+                                                        <mi>t</mi>
+                                                        <mi>h</mi>
+                                                    </mrow>
+                                                </msup>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">i^{th}</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8491em;"></span><span class="mord"><span
+                                                class="mord mathnormal">i</span><span class="msupsub"><span
+                                                    class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                            style="height:0.8491em;"><span
+                                                                style="top:-3.063em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mtight"><span
+                                                                            class="mord mathnormal mtight">t</span><span
+                                                                            class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span></span>
+                            fiber link connects nodes numbered <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">a_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">a</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            and <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>b</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">b_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">b</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.
+                            It is guaranteed that for each pair of nodes there exists at least one path connecting the
+                            two nodes. Any pair of nodes may have more than one fiber link connecting them.</p>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>Display the smallest number of nodes for which the number of connected links needs to change.
+                            Starting on the next line, display a system of connections in the same format as the input.
+                            That is, display a line containing the number of nodes (this will be the same as in the
+                            input) and the number of wireless links, and then on subsequent lines descriptions of the
+                            links. If more than one layout is possible, any valid layout will be accepted.</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">7 11
+0 1
+0 2
+0 5
+0 6
+1 3
+2 4
+1 2
+1 2
+1 5
+2 6
+5 6
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">3
+7 6
+0 1
+0 2
+0 5
+0 6
+3 6
+4 6
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 2</h2>
+                                <pre class="syntax-hl language-input2" tabindex="0"><code class="language-input2">4 3
+0 1
+2 1
+2 3
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 2</h2>
+                                <pre class="syntax-hl language-output2" tabindex="0"><code class="language-output2">0
+4 3
+2 1
+1 3
+0 2
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="hint" tabindex="-1">Hint</h2>
+                        <p>**Source**: This problem is from ACM/ICPC World Final 2018.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
+delete a pair of div
+
+-->
+
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "8/MaxAttackDamage.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #A. 使徒行者
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./8A.html" class="pass active">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a href="./8B.html" class="pass ">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a> <a href="./8C.html" class="pass ">
+                        <span class="id">C</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">50ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">使徒行者</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <h1 id="%E4%BD%BF%E5%BE%92%E8%A1%8C%E8%80%85" tabindex="-1">使徒行者</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>CIB 高级督察卓凯决定派卧底敢死队连续对最大的社团和兴进行攻击。每个卧底都有一个原始攻击值 <span class="katex"><span
+                                    class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">a_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">a</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            和一个顽强值 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>b</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">b_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">b</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。每个卧底发动攻击后都会暴露从而牺牲。英雄也会恐惧！一个卧底的恐惧值为其之前牺牲的卧底的顽强值总和。而一个卧底发动攻击时的真正攻击值为其原始攻击值与其恐惧值之差。为了给黑社会社团造成强大的震慑力：我们每个卧底英雄都不是盖的！卓
+                            Sir 要求 IT 部的精英设计这队卧底的攻击顺序，使得真正攻击力最小的卧底的攻击力最大。</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>输入数据的第一行为一个整数 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span>, 表示卧底的个数. 接下来 <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> 行每行两个正整数 <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>a</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">a_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">a</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+                            和 <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>b</mi>
+                                                    <mi>i</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">b_i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">b</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.3117em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">i</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，表示该名卧底的原始攻击值和顽强值。保证有
+                        </p>
+                        <ul>
+                            <li>对于 20% 的数据有 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>0</mn>
+                                                    <mo>&lt;</mo>
+                                                    <mi>n</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>10</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">0 &lt; n \leq 10</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.6835em;vertical-align:-0.0391em;"></span><span
+                                                class="mord">0</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span
+                                                class="mrel">&lt;</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">10</span></span></span></span>；</li>
+                            <li>对于 40% 的数据有 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>0</mn>
+                                                    <mo>&lt;</mo>
+                                                    <mi>n</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>20</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">0 &lt; n \leq 20</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.6835em;vertical-align:-0.0391em;"></span><span
+                                                class="mord">0</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span
+                                                class="mrel">&lt;</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">20</span></span></span></span>；</li>
+                            <li>对于 100% 的数据有<span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>0</mn>
+                                                    <mo>&lt;</mo>
+                                                    <mi>n</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>1000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">0 &lt; n \leq 1000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.6835em;vertical-align:-0.0391em;"></span><span
+                                                class="mord">0</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span
+                                                class="mrel">&lt;</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1000</span></span></span></span>。</li>
+                            <li>对于全部的数据有 <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>0</mn>
+                                                    <mo>&lt;</mo>
+                                                    <mi>a</mi>
+                                                    <mi mathvariant="normal">_</mi>
+                                                    <mi>i</mi>
+                                                    <mo separator="true">,</mo>
+                                                    <mi>b</mi>
+                                                    <mi mathvariant="normal">_</mi>
+                                                    <mi>i</mi>
+                                                    <mo>&lt;</mo>
+                                                    <mn>1</mn>
+                                                    <msup>
+                                                        <mn>0</mn>
+                                                        <mn>6</mn>
+                                                    </msup>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">0 &lt; a\_i, b\_i &lt; 10^6
+                                                </annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.6835em;vertical-align:-0.0391em;"></span><span
+                                                class="mord">0</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span
+                                                class="mrel">&lt;</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut"
+                                                style="height:1.0044em;vertical-align:-0.31em;"></span><span
+                                                class="mord mathnormal">a</span><span class="mord"
+                                                style="margin-right:0.02778em;">_</span><span
+                                                class="mord mathnormal">i</span><span class="mpunct">,</span><span
+                                                class="mspace" style="margin-right:0.1667em;"></span><span
+                                                class="mord mathnormal">b</span><span class="mord"
+                                                style="margin-right:0.02778em;">_</span><span
+                                                class="mord mathnormal">i</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span
+                                                class="mrel">&lt;</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                                class="strut" style="height:0.8141em;"></span><span
+                                                class="mord">1</span><span class="mord"><span class="mord">0</span><span
+                                                    class="msupsub"><span class="vlist-t"><span class="vlist-r"><span
+                                                                class="vlist" style="height:0.8141em;"><span
+                                                                    style="top:-3.063em;margin-right:0.05em;"><span
+                                                                        class="pstrut"
+                                                                        style="height:2.7em;"></span><span
+                                                                        class="sizing reset-size6 size3 mtight"><span
+                                                                            class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>。
+                            </li>
+                        </ul>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>输出一个整数，为真实攻击力最小的卧底可以达到的最大攻击力。</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">3
+7 4
+5 3
+3 1
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">3
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="hint" tabindex="-1">Hint</h2>
+                        <p>最优攻击顺序为321：3先发起攻击，真实攻击值为3；接着2发起攻击，真实攻击为5-1=4；最后1发起攻击，真实攻击为7-1-3=3。因此最小攻击力为3。</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
