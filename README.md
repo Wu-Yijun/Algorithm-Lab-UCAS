@@ -36,3 +36,9 @@ UCAS Lab 算法研讨课 圣遗物
 - [8A. 使徒行者](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/8A.html)
 - [8B. 中位数](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/8B.html)
 - [8C. Wireless is the New Fiber (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/8C.html)
+
+### 09 综合练习
+
+- [9A. Rectangle](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/9A.html)
+- [9B. Forever Young (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/9B.html)
+
