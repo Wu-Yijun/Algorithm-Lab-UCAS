@@ -1,7 +1,7 @@
 // #4B. Money for Nothing (optional)
 /***
  * @author Yijun-Wu, UCAS
- * @date 12-Dec-2023
+ * @date 30-Dec-2023
  *
  ***/
 #include <algorithm>
