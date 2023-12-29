@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Using Template To Render Pages
+
+replace:
+a href="javascript:;"
+with:
+a onClick="onCopy(this)" href="javascript:;"
+
+modify:
+a href="/d/Algorithm_2023/..."
+to:
+a herf="./**"
+
+modify:
+var kCodeUrl = "1/plus_min.cpp"
+to:
+dir of file
+
+delete a pair of div
+
+-->
+
+
+<head>
+    <link rel="stylesheet" media="all" href="theme-4.48.21.css">
+    <script src="./my_scripts.js"></script>
+    <script> var kCodeUrl = "10/MaximumFlow.cpp"; </script>
+    <style>
+        .mytag {
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="medium-9 columns">
+        <div class="section visible">
+            <div class="section__body">
+
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-unordered_list mytag"
+                        onclick="GotoIndex()">Go to Index</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-reply mytag"
+                        onclick="Goback()">Go back</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-preview mytag"
+                        onclick="ViewCode(kCodeUrl)">View Code</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-refresh mytag"
+                        onclick="RefreshPage()">Refresh</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-star mytag">
+                        <iframe
+                            src="https://ghbtns.com/github-btn.html?user=Wu-Yijun=twbs&repo=Algorithm-Lab-UCAS&type=star&count=true"
+                            frameborder="0" scrolling="0" width="50" height="20" title="GitHub">Star Me</iframe>
+                    </span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="section__header">
+                <h1 class="section__title">
+                    #A. Maximum Flow
+                </h1>
+                <div class="section__tools contest-problems">
+                    <a href="./10A.html" class="pass active">
+                        <span class="id">A</span>
+                        <span class="icon icon-check"></span> </a> <a
+                        href="./10B.html" class="pass  ">
+                        <span class="id">B</span>
+                        <span class="icon icon-check"></span> </a>
+                </div>
+            </div>
+            <div class="section__body">
+                <ul class="problem__tags">
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-book">传统题</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-stopwatch">800ms</span>
+                    <span class="bp4-tag bp4-large bp4-minimal problem__tag-item icon icon-comparison">256MiB</span>
+                </ul>
+            </div>
+        </div>
+        <div class="section visible">
+            <div class="problem-content-container">
+                <div class="problem-content" data-marker-enabled="">
+                    <div class="section__header non-scratchpad--hide">
+                        <h1 class="section__title">Maximum Flow</h1>
+                    </div>
+                    <div class="section__body typo" data-fragment-id="problem-description">
+                        <h1 id="maximum-flow" tabindex="-1">Maximum Flow</h1>
+                        <h2 id="description" tabindex="-1">Description</h2>
+                        <p>Solve the Maximum Flow problem.</p>
+                        <p>Given a directed graph <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>G</mi>
+                                                <mo>=</mo>
+                                                <mo stretchy="false">(</mo>
+                                                <mi>V</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>E</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">G=(V, E)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6833em;"></span><span
+                                            class="mord mathnormal">G</span><span class="mspace"
+                                            style="margin-right:0.2778em;"></span><span class="mrel">=</span><span
+                                            class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                        class="base"><span class="strut"
+                                            style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mopen">(</span><span class="mord mathnormal"
+                                            style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal" style="margin-right:0.05764em;">E</span><span
+                                            class="mclose">)</span></span></span></span>. Each edge <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>e</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">e</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">e</span></span></span></span> has a capacity <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <msub>
+                                                    <mi>c</mi>
+                                                    <mi>e</mi>
+                                                </msub>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">c_e</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span
+                                            class="mord"><span class="mord mathnormal">c</span><span
+                                                class="msupsub"><span class="vlist-t vlist-t2"><span
+                                                        class="vlist-r"><span class="vlist"
+                                                            style="height:0.1514em;"><span
+                                                                style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span
+                                                                    class="pstrut" style="height:2.7em;"></span><span
+                                                                    class="sizing reset-size6 size3 mtight"><span
+                                                                        class="mord mathnormal mtight">e</span></span></span></span><span
+                                                            class="vlist-s">​</span></span><span class="vlist-r"><span
+                                                            class="vlist"
+                                                            style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.
+                            Given two special points source <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>s</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">s</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">s</span></span></span></span> and sink <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>t</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">t</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6151em;"></span><span
+                                            class="mord mathnormal">t</span></span></span></span>. Output the value of
+                            the maximum flow from <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>s</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">s</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">s</span></span></span></span> to <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>t</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">t</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6151em;"></span><span
+                                            class="mord mathnormal">t</span></span></span></span>.</p>
+                        <h2 id="input" tabindex="-1">Input</h2>
+                        <p>The first line contains four integers (<span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>m</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>s</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>t</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n, m, s, t</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.8095em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal">n</span><span class="mpunct">,</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal">m</span><span class="mpunct">,</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal">s</span><span class="mpunct">,</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal">t</span></span></span></span>) where <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>n</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">n</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">n</span></span></span></span> is the number of
+                            nodes, <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>m</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">m</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">m</span></span></span></span> is the number of
+                            edges, <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>s</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">s</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">s</span></span></span></span> is the source node and
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>t</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">t</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6151em;"></span><span
+                                            class="mord mathnormal">t</span></span></span></span> is the sink node. In
+                            the following <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>m</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">m</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">m</span></span></span></span> lines, each line
+                            contains three integers <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mo stretchy="false">(</mo>
+                                                <mi>i</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>j</mi>
+                                                <mo separator="true">,</mo>
+                                                <mi>c</mi>
+                                                <mo stretchy="false">)</mo>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">(i, j, c)</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                            class="mopen">(</span><span class="mord mathnormal">i</span><span
+                                            class="mpunct">,</span><span class="mspace"
+                                            style="margin-right:0.1667em;"></span><span class="mord mathnormal"
+                                            style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span
+                                            class="mspace" style="margin-right:0.1667em;"></span><span
+                                            class="mord mathnormal">c</span><span
+                                            class="mclose">)</span></span></span></span> indicating a directed edge from
+                            node <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>i</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">i</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.6595em;"></span><span
+                                            class="mord mathnormal">i</span></span></span></span> to node <span
+                                class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>j</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">j</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span
+                                            class="mord mathnormal"
+                                            style="margin-right:0.05724em;">j</span></span></span></span> with capacity
+                            <span class="katex"><span class="katex-mathml"><math
+                                        xmlns="http://www.w3.org/1998/Math/MathML">
+                                        <semantics>
+                                            <mrow>
+                                                <mi>c</mi>
+                                            </mrow>
+                                            <annotation encoding="application/x-tex">c</annotation>
+                                        </semantics>
+                                    </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                            class="strut" style="height:0.4306em;"></span><span
+                                            class="mord mathnormal">c</span></span></span></span>. The sizes of the
+                            graphs are as follows.</p>
+                        <ul>
+                            <li>For 50% cases we have <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>50</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n \le 50</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">50</span></span></span></span>, <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                    <mo>≤</mo>
+                                                    <mi>m</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>200</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1 \le m \le 200</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                                class="mord">1</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">m</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">200</span></span></span></span>, <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>c</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>1000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">c \le 1000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">c</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1000</span></span></span></span>;</li>
+                            <li>For 70% cases we have <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>200</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n \le 200</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">200</span></span></span></span>, <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                    <mo>≤</mo>
+                                                    <mi>m</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>1000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1 \le m \le 1000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                                class="mord">1</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">m</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">1000</span></span></span></span>, <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>c</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>10000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">c \le 10000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">c</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">10000</span></span></span></span>;</li>
+                            <li>For 90% cases we have <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>500</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n \le 500</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">500</span></span></span></span>, <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                    <mo>≤</mo>
+                                                    <mi>m</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>30000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1 \le m \le 30000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                                class="mord">1</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">m</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">30000</span></span></span></span>, <span
+                                    class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>c</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>50000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">c \le 50000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">c</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">50000</span></span></span></span>;</li>
+                            <li>For 100% cases we have <span class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>n</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>500</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">n \le 500</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">n</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">500</span></span></span></span>, <span class="katex"><span
+                                        class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mn>1</mn>
+                                                    <mo>≤</mo>
+                                                    <mi>m</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>30000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">1 \le m \le 30000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7804em;vertical-align:-0.136em;"></span><span
+                                                class="mord">1</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">m</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">30000</span></span></span></span>, <span
+                                    class="katex"><span class="katex-mathml"><math
+                                            xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <semantics>
+                                                <mrow>
+                                                    <mi>c</mi>
+                                                    <mo>≤</mo>
+                                                    <mn>100000000</mn>
+                                                </mrow>
+                                                <annotation encoding="application/x-tex">c \le 100000000</annotation>
+                                            </semantics>
+                                        </math></span><span class="katex-html" aria-hidden="true"><span
+                                            class="base"><span class="strut"
+                                                style="height:0.7719em;vertical-align:-0.136em;"></span><span
+                                                class="mord mathnormal">c</span><span class="mspace"
+                                                style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span
+                                                class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                            class="base"><span class="strut" style="height:0.6444em;"></span><span
+                                                class="mord">100000000</span></span></span></span>.</li>
+                        </ul>
+                        <h2 id="output" tabindex="-1">Output</h2>
+                        <p>You should output one integer which is the value of maximum flow.</p>
+                        <h2 id="samples" tabindex="-1">Samples</h2>
+                        <div class="row">
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输入数据 1</h2>
+                                <pre class="syntax-hl language-input1" tabindex="0"><code class="language-input1">4 5 1 4
+1 2 2
+1 3 1
+2 3 3
+2 4 2
+3 4 1
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                            <div class="code-toolbar medium-6 columns sample">
+                                <h2>输出数据 1</h2>
+                                <pre class="syntax-hl language-output1" tabindex="0"><code class="language-output1">3
+</code></pre>
+                                <div class="toolbar">
+                                    <div class="toolbar-item"><a onClick="onCopy(this)" href="javascript:;">Copy</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

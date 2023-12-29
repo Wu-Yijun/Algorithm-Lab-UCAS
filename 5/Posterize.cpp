@@ -1,4 +1,9 @@
 // #5C. Posterize (optional)
+/***
+ * @author Yijun-Wu, UCAS
+ * @date 12-Dec-2023
+ *
+ ***/
 #include <cstring>
 #include <iostream>
 

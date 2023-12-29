@@ -1,4 +1,9 @@
 // #7B. Largest Number
+/***
+ * @author Yijun-Wu, UCAS
+ * @date 12-Dec-2023
+ *
+ ***/
 #include <algorithm>
 #include <iostream>
 using namespace std;

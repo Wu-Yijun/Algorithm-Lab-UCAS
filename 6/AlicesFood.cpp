@@ -1,4 +1,9 @@
 // #6A. Alice's food
+/***
+ * @author Yijun-Wu, UCAS
+ * @date 12-Dec-2023
+ *
+ ***/
 #include <iostream>
 using namespace std;
 

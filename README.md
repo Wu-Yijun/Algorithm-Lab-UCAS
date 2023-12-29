@@ -42,3 +42,7 @@ UCAS Lab 算法研讨课 圣遗物
 - [9A. Rectangle](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/9A.html)
 - [9B. Forever Young (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/9B.html)
 
+### 10 网络流
+
+- [10A. Maximum Flow](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/10A.html)
+- [10B. Mission Improbable (optional)](https://wu-yijun.github.io/Algorithm-Lab-UCAS/html/10B.html)

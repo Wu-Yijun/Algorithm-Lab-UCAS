@@ -1,4 +1,9 @@
 // #8B. 中位数
+/***
+ * @author Yijun-Wu, UCAS
+ * @date 12-Dec-2023
+ *
+ ***/
 #include <algorithm>
 #include <iostream>
 

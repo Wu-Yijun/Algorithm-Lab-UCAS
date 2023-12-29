@@ -1,4 +1,9 @@
 // #3A. Count Inversion
+/***
+ * @author Yijun-Wu, UCAS
+ * @date 12-Dec-2023
+ *
+ ***/
 #include <iostream>
 
 using LL = long long;

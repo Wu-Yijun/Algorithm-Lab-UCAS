@@ -1,4 +1,9 @@
 // #4A. Draw a circle
+/***
+ * @author Yijun-Wu, UCAS
+ * @date 12-Dec-2023
+ *
+ ***/
 #include <algorithm>
 #include <cmath>
 #include <iostream>

@@ -1,4 +1,9 @@
 // #3C. Low power (optional)
+/***
+ * @author Yijun-Wu, UCAS
+ * @date 12-Dec-2023
+ *
+ ***/
 // 选做题不计入课程分数
 // @Source: This problem is from ACM/ICPC World Final 2013
 

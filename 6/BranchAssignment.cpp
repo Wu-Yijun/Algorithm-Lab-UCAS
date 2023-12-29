@@ -1,4 +1,9 @@
 // #6C. Branch Assignment (optional)
+/***
+ * @author Yijun-Wu, UCAS
+ * @date 12-Dec-2023
+ *
+ ***/
 // Note: 这个代码是我网上找的
 #include <algorithm>
 #include <iostream>
